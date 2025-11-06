@@ -1,0 +1,29 @@
+[package]
+name = "auramore"
+version = "0.1.0"
+description = "Кроссплатформенное приложение для кастомизации UI и поведения ОС"
+authors = ["Auramore Team"]
+license = "MIT"
+repository = ""
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+zip = "0.6"
+walkdir = "2"
+dirs = "5.0"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winuser", "processthreadsapi", "libloaderapi"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc = "0.2"
+core-foundation = "0.9"
+libc = "0.2"
+
